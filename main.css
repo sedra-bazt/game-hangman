@@ -1,0 +1,268 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.countainer{
+    margin: 20px auto;
+    width: 1000px;
+
+}
+.row{
+    display: flex;
+}
+hr{
+    border: 1px solid #eee;
+}
+.game-info{
+    display: flex;
+}
+.game-info .game-name{
+flex: 1;
+}
+.game-info .category{
+    flex: 1;
+    text-align: right;
+    span{
+        text-transform: capitalize;
+        color: #e9613e;
+        font-weight: bold;
+    }
+}
+.hangman-drow{
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 20px;
+    height: 320px;
+   
+}
+.hangman-drow .the-drow{
+    width: 80px;
+    height: 280px;
+    border-bottom: 4px solid #222;
+    position: relative;
+    margin: auto;
+   display: none;
+}
+.hangman-drow.wrong-1 .the-drow{
+    display: block;
+}
+.hangman-drow .stand{
+    display: none;
+}
+.hangman-drow.wrong-2 .stand{
+    display: block;
+}
+
+.hangman-drow .stand::before{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+     background-color: #222;
+     left: 50%;
+     margin-left: -2px;
+}
+.hangman-drow .hang{
+    display: none;
+}
+.hangman-drow.wrong-3 .hang{
+    display: block;
+}
+
+.hangman-drow .hang::before{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: #222;
+    left: 50%;
+    top: 5%;
+}
+.hangman-drow .rope{
+    display: none;
+}
+.hangman-drow.wrong-4 .rope{
+    display: block;
+}
+
+.hangman-drow .rope::before{
+    content: "";
+    position: absolute;
+    height: 165px;
+    width: 4px;
+    background-color: #222;
+    left: 116px;
+    top: 17px;
+}
+.hangman-drow .rope::after{
+ content: "";
+    position: absolute;
+    height: 55px;
+    width: 55px;
+    left: 89px;
+    top: 23px;
+    border: 3px dashed #222;
+    border-radius: 50%;
+    background-color: #eee;
+   
+}
+.hangman-drow .man .heade{
+    display: none;
+}
+.hangman-drow.wrong-4 .man .heade{
+    display: block;
+}
+.hangman-drow .man .heade::after{
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 97px;
+    top: 30px;
+    border: 3px solid #222;
+    border-radius: 50%;
+    background-color: #eee;
+}
+.hangman-drow .man .hand{
+    display: none;
+}
+.hangman-drow.wrong-5 .man .hand{
+    display: block;
+}
+.hangman-drow .man .hand::before{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    background-color: #222;
+    left: 125%;
+    bottom: 50%;
+    transform: rotate(298deg);
+}
+.hangman-drow .man .hand::after{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    background-color: #222;
+    left: 165%;
+    bottom: 51%;
+    transform: rotate(55deg);
+}
+.hangman-drow .man .legs{
+    display: none;
+}
+.hangman-drow.wrong-6 .man .legs{
+    display: block;
+}
+
+.hangman-drow .man .legs::before{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    background-color: #222;
+    left: 125%;
+    bottom: 23%;
+    transform: rotate(55deg);
+}
+
+.hangman-drow .man .legs::after{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    background-color: #222;
+    left: 165%;
+    bottom: 23%;
+    transform: rotate(305deg);
+}
+
+.letters {
+flex: 1;
+padding: 15px;
+text-align: center;
+}
+.letters.finished span{
+
+pointer-events: none;
+background-color: grey;
+}
+
+
+.letters .letter-box{
+    background-color: aquamarine;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 2.5;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 10%;
+    box-shadow: 1px 1px 4px #222;
+}
+.letters .letter-box.clicked{
+    background-color: gray;
+    cursor: none;
+}
+.letters-guess {
+  margin: 20px auto;
+ 
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 104px;
+  background-color: aliceblue;
+}
+.letters-guess span{
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    background-color: aquamarine;
+    border-bottom: 3px solid #222;
+    border-radius: 10%;
+    box-shadow: 1px 1px 4px #222;
+  }
+
+  .letters-guess .span-space{
+    
+    border-bottom: none;
+    position: relative;
+    box-shadow: none;
+    background-color: #eee;
+    border-radius: 0;
+  }
+  .letters-guess .span-space::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: cadetblue;
+    width: 15px;
+    height: 4px;
+    transform: translate(-50%,-50%);
+  }
+.lose  {
+   color: #222;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+   font-style: italic;
+    position: relative;
+    left: 40%;
+
+}
+.lose  span{
+    color: red;
+    font-size: 30px;
+}
